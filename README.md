@@ -64,6 +64,8 @@ Instance 3:
 - aws_alb
 - aws_alb_listener
 ```
+![image](TerraformDockerfilesScriptsAndImges/VPCinfrastructure.png)
+
 ### Step 4: Edited the Jenkinsfile
 1. Added my Docker Hub credentials to the Jenkinsfile.
 2. Added my Bank App image name to the Jenkinsfile.
@@ -100,20 +102,25 @@ Instance 3:
 ### Step 5: Jenkins Multibranch Pipeline
 1. I downloaded the Docker Pipeline plugin on Jenkins
 1. Create a Jenkins multibranch pipeline.
-2. Run the Jenkinsfilev.
+2. Run the Jenkinsfile.
+![image](TerraformDockerfilesScriptsAndImges/jenkinsdep7.png)
 
 ### Step 6: Application Testing
 1. Check the application utilizing the Load Balancer URL.
 2. Observed the application running.
+# Bank App US-east-1a
+![image](TerraformDockerfilesScriptsAndImges/dep7bankapp.png)
 
 ## FAQ
 
 ### Is your infrastructure secure? if yes or no, why?
+   I believe we can further make the infrastructure more secure by implementing specific security configurations such as encryptions or even adding a Web Application Firewall. Also, we allow all traffic on port 80 from any source which could be a security risk. 
 
 ### What happens when you terminate 1 instance? Is this infrastructure fault-tolerant?
+   The infrastructure is fault-tolerant to a degree due to having multiple containers across multiple AZ's. If any instance were to go down the containers would continue to run due to being isolated from the instances.
 
 ### Which subnet were the containers deployed in? 
-
+The containers are deployed within the private subnets as they should not be directly accessible from the internet
   
 ### System Diagram
 ![image](Deployment6-IMG/DEP6.png)
@@ -124,19 +131,4 @@ To make this deployment more efficient, I would implement the following:
 1. **Implement Autoscaling:** Set up auto-scaling groups for EC2 instances to automatically adjust the number of instances based on traffic demands.
 
 
-# Bank App US-east-1a
-![image](Deployment6-IMG/1stBankServer.png)
-# Bank App US-east-1b
-![image](Deployment6-IMG/2ndBankServer.png)
-# Bank App US-west-2a
-![image](Deployment6-IMG/3rdBankServer.png)
-# Bank App US-west-2b
-![image](Deployment6-IMG/4thBankServer.png)
-# Jenkins Credential Failure
-![image](Deployment6-IMG/mainbranchfailed.png)
-# West Branch Successful Deploy
-![image](Deployment6-IMG/westbranchdeployed.png)
-# Load Balancer East
-![image](Deployment6-IMG/loadbalancereast.png)
-# Load Balancer West
-![image](Deployment6-IMG/loadbalancerwest.png)
+
