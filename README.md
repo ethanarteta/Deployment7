@@ -123,7 +123,7 @@ Instance 3:
 The containers are deployed within the private subnets as they should not be directly accessible from the internet
   
 ### System Diagram
-![image](Deployment6-IMG/DEP6.png)
+![image](TerraformDockerfilesScriptsAndImges/dep7diagram.png)
 
 ### Optimization
 To make this deployment more efficient, I would implement the following:
